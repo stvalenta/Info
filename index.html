@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onresize="furt()">
+    <p id="demo"></p>
+
+<script>
+window.onLoad = furt();
+
+function furt (){document.getElementById("demo").innerHTML =
+"Browser inner window width: " + window.innerWidth + "px<br>" +
+"Browser inner window height: " + window.innerHeight + "px";}
+</script>
+<p id="emo"></p>
+
+<script>
+document.getElementById("emo").innerHTML = 
+"Screen color depth is " + screen.colorDepth;
+</script>
+<p id="mo"></p>
+
+<script>
+document.getElementById("mo").innerHTML = 
+"Screen pixel depth is " + screen.pixelDepth;
+</script>
+<p id="o"></p>
+
+<script>
+document.getElementById("o").innerHTML = 
+"The full URL of this page is:<br>" + window.location.href;
+</script>
+<p id="dem"></p>
+
+<script>
+document.getElementById("dem").innerHTML = 
+"Page hostname is: " + window.location.hostname;
+</script>
+<p id="de"></p>
+
+<script>
+document.getElementById("de").innerHTML =
+"Page path is: " + window.location.pathname;
+</script>
+<p id="d"></p>
+
+<script>
+document.getElementById("d").innerHTML =
+"The page protocol is: " + window.location.protocol;
+</script>
+<p id="do"></p>
+
+<script>
+document.getElementById("do").innerHTML = 
+"navigator.appCodeName is: " + navigator.appCodeName;
+</script>
+<p id="dm"></p>
+
+<script>
+document.getElementById("dm").innerHTML =
+"navigator.product is: " + navigator.product;
+</script>
+<p id="eo"></p>
+
+<script>
+document.getElementById("eo").innerHTML = navigator.appVersion;
+</script>
+<p id="moc"></p>
+
+<script>
+document.getElementById("moc").innerHTML =
+navigator.userAgent;
+</script>
+<button onclick="getLocation()">Try It</button>
+
+<p id="co"></p>
+
+<script>
+const x = document.getElementById("co");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+</script>
+</body>
+</html>
